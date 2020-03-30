@@ -21,7 +21,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private MainViewModel mainViewModel;
-    private CoronaDataAdapter coronaDataAdapter;
     SwipeRefreshLayout swipeRefresh;
     RecyclerView mRecyclerView;
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void prepareRecyclerView(List<Corona> coronaList) {
-        coronaDataAdapter = new CoronaDataAdapter(coronaList);
+        CoronaDataAdapter coronaDataAdapter = new CoronaDataAdapter(coronaList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(coronaDataAdapter);

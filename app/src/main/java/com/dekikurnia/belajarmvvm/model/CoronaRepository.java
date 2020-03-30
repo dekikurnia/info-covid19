@@ -15,7 +15,7 @@ import retrofit2.Response;
 
 public class CoronaRepository {
     private String TAG = "CoronaRepository";
-    private MutableLiveData mutableLiveData = new MutableLiveData<>();
+    private MutableLiveData<List<Corona>> mutableLiveData = new MutableLiveData<>();
 
     public CoronaRepository() {
     }
@@ -27,14 +27,13 @@ public class CoronaRepository {
 
             @Override
             public void onResponse(Call<List<Corona>> call, Response<List<Corona>> response) {
-                Log.e(TAG, "onResponse: " + call.request().url());
-                Log.e(TAG, "onResponse: " + response.toString());
-                mutableLiveData.setValue(response.body());;
+                if (response.isSuccessful()) {
+                    mutableLiveData.setValue(response.body());;
+                }
             }
 
             @Override
             public void onFailure(Call<List<Corona>> call, Throwable t) {
-                Log.e(TAG, "onResponse: " + call.request().url());
                 Log.e(TAG, "onFailure: " + t.getCause());
                 Log.e(TAG, "onFailure: " + t.getLocalizedMessage());
                 Log.e(TAG, "onFailure: " + t.getMessage());
