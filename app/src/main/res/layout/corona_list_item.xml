@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="corona"
+            type="com.dekikurnia.belajarmvvm.model.Corona"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCorona"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:elevation="3dp"
+            card_view:cardCornerRadius="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/tvProvinsi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="4dp"
+                    android:text="@{`Provinsi : ` + corona.attributes.provinsi}"
+                    android:textColor="@color/colorProvinsi"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/m_medium"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent"
+                    tools:text="DKI. Jakarta" />
+
+                <TextView
+                    android:id="@+id/tvPositif"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:padding="4dp"
+                    android:text="@{`Positif : ` + corona.attributes.positif}"
+                    android:textColor="@color/colorPositif"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/m_regular"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvProvinsi"
+                    tools:text="Positif" />
+
+                <TextView
+                    android:id="@+id/tvSembuh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:padding="4dp"
+                    android:text="@{`Sembuh : ` + corona.attributes.sembuh}"
+                    android:textColor="@color/colorSembuh"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/m_regular"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvPositif"
+                    tools:text="Sembuh" />
+
+                <TextView
+                    android:id="@+id/tvMeninggal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:padding="4dp"
+                    android:text="@{`Meninggal : ` + corona.attributes.meninggal}"
+                    android:textColor="@color/colorMeninggal"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/m_regular"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvSembuh"
+                    tools:text="Meninggal" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
